@@ -33,9 +33,9 @@ def get_char
 end
 
 def turn(board)
+  puts("Please enter 1-9: ")
   moved = false
   until moved
-    puts("Please enter 1-9: ")
     index = input_to_index(gets.strip)
     if valid_move(board, index)
       char = get_char
