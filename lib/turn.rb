@@ -9,3 +9,12 @@ end
 def input_to_index(num)
   return num.to_i - 1
 end
+
+def valid_move?(board, index)
+  return index.between?(0, board.size) position_taken?(board, index)
+end
+
+def position_taken?(board, index)
+  spot = board[index]
+  return !(spot == " " || spot == "" || !spot)
+end
