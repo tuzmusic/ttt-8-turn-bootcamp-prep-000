@@ -23,7 +23,26 @@ def move(board, index, char)
   board[index] = char
 end
 
+def get_char
+  char = ""
+  until char == "X" || char == "O"
+    puts("Enter X or O: ")
+    char = gets.strip.upcase
+  end
+  return char
+end
+
 def turn(board)
-  puts("Please enter 1-9:")
-  index = input_to_index(gets.strip)
+  moved = false
+  until moved
+    puts("Please enter 1-9: ")
+    index = input_to_index(gets.strip)
+    if valid_move(board, index)
+      char = get_char
+      moved = true
+      move(board, index, char)
+    else
+      puts("That number is taken, or outside the range. Try again.")
+    end
+  end
 end
